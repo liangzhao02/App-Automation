@@ -1,4 +1,6 @@
 # 导包
+from time import sleep
+
 from appium import webdriver
 
 # 启动参数
@@ -8,7 +10,7 @@ desired_caps = dict()
 desired_caps['platformName'] = 'Android'
 
 # 手机的系统版本
-desired_caps['platformVersion'] = '9.0'
+desired_caps['platformVersion'] = '9'
 
 # 手机的名字
 desired_caps['deviceName'] = 'Android'
@@ -19,4 +21,7 @@ desired_caps['appPackage'] = 'com.android.settings'
 desired_caps['appActivity'] = '.Settings'
 
 # 连接驱动 + 连接手机 + 打开程序（手机的信息）
-driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", )
+driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
+
+sleep(3)
+driver.quit()
