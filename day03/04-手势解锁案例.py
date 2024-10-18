@@ -24,28 +24,15 @@ desired_caps['appActivity'] = '.Settings'
 # 连接驱动 + 连接手机 + 打开程序（手机的信息）
 driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
 driver.implicitly_wait(2)
-# 创建TouchAction类对象
+# 创建TouchAction子对象
 action = TouchAction(driver)
-# 调用轻敲方法
-# action.tap(x=171, y=694).perform()
-# action.tap(x=331, y=984, count=20).perform()
-# # 按下
-# action.press(x=171, y=694).perform()
-#
-# # 等待
-# action.wait(3000).perform()
-#
-# # 抬起
-# action.release().perform()
 
-# 长按
-# action.press(x=171, y=694).wait(3000).release().perform()
+driver.find_element_by_xpath("//*[@text='安全性和位置信息']").click()
+driver.find_element_by_xpath("//*[@text='屏幕锁定']").click()
+driver.find_element_by_xpath("//*[@text='图案']").click()
 
-# 长按
-# action.long_press(x=171, y=694, duration=3000).release().perform()
-
-# 拖动 move_to
+action.press(x=175, y=610).move_to(x=540, y=610).move_to(x=176, y=973).move_to(x=538, y=975).release().perform()
 
 
-sleep(3)
-driver.quit()
+# sleep(2)
+# driver.quit()
